@@ -1,18 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center_horizontal"
     tools:context="com.example.android.androidsimulator.MainActivity">
 
-    <TextView
+    <!-- ICONS FROM https://www.flaticon.com -->
+    <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="horizontal">
 
-</android.support.constraint.ConstraintLayout>
+        <ImageView
+            android:id="@+id/img_messages"
+            android:src="@drawable/messages"
+            style="@style/iconsMainActivity" />
+
+        <TextView
+            android:id="@+id/messages_textView"
+            android:layout_below="@id/img_messages"
+            android:text="@string/app_messages"
+            style="@style/textIconsMainActivity" />
+
+        <ImageView
+            android:id="@+id/img_contacts"
+            android:src="@drawable/contacts"
+            android:layout_toRightOf="@id/img_messages"
+            style="@style/iconsMainActivity" />
+
+        <TextView
+            android:id="@+id/contacts_textView"
+            android:layout_below="@id/img_contacts"
+            android:layout_toRightOf="@id/messages_textView"
+            android:text="@string/app_contacts"
+            style="@style/textIconsMainActivity" />
+
+        <ImageView
+            android:id="@+id/img_settings"
+            android:src="@drawable/settings"
+            android:layout_toRightOf="@+id/img_contacts"
+            style="@style/iconsMainActivity" />
+
+        <TextView
+            android:id="@+id/settings_textView"
+            android:layout_below="@+id/img_settings"
+            android:layout_toRightOf="@id/contacts_textView"
+            android:text="@string/app_settings"
+            style="@style/textIconsMainActivity"/>
+    </RelativeLayout>
+
+</LinearLayout>
