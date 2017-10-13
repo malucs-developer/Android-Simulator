@@ -18,9 +18,7 @@ public class ContactsAdapter  extends ArrayAdapter<Contacts> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View listItemView = convertView;
-
         if (listItemView == null) {
-            View itemListViewm = convertView;
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_contacts, parent, false);
         }
@@ -28,10 +26,10 @@ public class ContactsAdapter  extends ArrayAdapter<Contacts> {
         Contacts currentContact = getItem(position);
 
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.name_textView);
-        TextView numberTextView = (TextView) listItemView.findViewById(R.id.number_textView);
-
         nameTextView.setText(currentContact.getName());
-        numberTextView.setText(currentContact.getNumber());
+
+        TextView numberTextView = (TextView) listItemView.findViewById(R.id.number_textView);
+        numberTextView.setText(String.valueOf(currentContact.getNumber()));
 
         return listItemView;
     }

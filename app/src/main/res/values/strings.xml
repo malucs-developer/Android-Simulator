@@ -1,7 +1,11 @@
 <resources>
     <string name="app_name">Android Simulator</string>
 
+    <!-- MainActivity -->
     <string name="app_messages">Messages</string>
     <string name="app_contacts">Contacts</string>
     <string name="app_settings">Settings</string>
+
+    <!-- ContactsActivity -->
+    <string name="btn_createContact">Add Contact</string>
 </resources>
