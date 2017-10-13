@@ -1,5 +1,6 @@
 package com.example.android.androidsimulator;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -33,7 +34,8 @@ public class ContactsActivity extends AppCompatActivity {
         buttonAddContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intentAddContact = new Intent(ContactsActivity.this, AddContactsActivity.class);
+                startActivity(intentAddContact);
             }
         });
     }

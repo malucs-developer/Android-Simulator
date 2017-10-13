@@ -8,4 +8,8 @@
 
     <!-- ContactsActivity -->
     <string name="btn_createContact">Add Contact</string>
+
+    <!-- AddContactsActivity -->
+    <string name="textName">Name</string>
+    <string name="textNumber">Number</string>
 </resources>
