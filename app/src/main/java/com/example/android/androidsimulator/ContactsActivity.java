@@ -1,6 +1,8 @@
 package com.example.android.androidsimulator;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,23 +13,29 @@ import java.util.ArrayList;
 
 public class ContactsActivity extends AppCompatActivity {
 
-    ContactsAdapter contactsAdapter;
+    SharedPreferences preferences;
     ArrayList<Contacts> contacts;
+    ContactsAdapter contactsAdapter;
     Button buttonAddContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contacts);
-
         buttonAddContact = (Button) findViewById(R.id.addContact_button);
-        contacts = new ArrayList<>();
 
-        // default values for test
-        addContacts();
+        // show contacts from internal storage
+        showContacts();
 
         // set OnClickListener
         setEvents();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        showContacts();
     }
 
     private void setEvents() {
@@ -40,15 +48,22 @@ public class ContactsActivity extends AppCompatActivity {
         });
     }
 
-    private void addContacts() {
-        contacts.add(new Contacts("Contact One", Integer.valueOf(912976342)));
-        contacts.add(new Contacts("Contact Two", Integer.valueOf(912564789)));
-        contacts.add(new Contacts("Contact Three", Integer.valueOf(912098123)));
+    public void showContacts() {
+        contacts = new ArrayList<>();
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int totalContacts = preferences.getInt("totalContacts", 0);
+
+        for (int index = 1; index <= totalContacts; index++) {
+            String name = preferences.getString("nameContact" + index, "");
+            int number = preferences.getInt("numberContact" + index, 0);
+
+            contacts.add(new Contacts(name, number));
+        }
 
         addAdapter();
     }
 
-    private void addAdapter() {
+    public void addAdapter() {
         contactsAdapter = new ContactsAdapter(this, contacts);
         ListView listView = (ListView) findViewById(R.id.list_contacts);
         listView.setAdapter(contactsAdapter);
