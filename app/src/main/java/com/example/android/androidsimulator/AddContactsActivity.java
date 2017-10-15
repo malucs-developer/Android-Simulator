@@ -62,6 +62,10 @@ public class AddContactsActivity extends AppCompatActivity {
             editor.putString("nameContact" + totalContacts, name);
             editor.putInt("numberContact" + totalContacts, Integer.valueOf(number));
             editor.apply();
+
+            // clear EditTexts
+            nameContact.setText("");
+            numberContact.setText("");
         }
 
        toast = Toast.makeText(this, validationMessage, Toast.LENGTH_SHORT);
