@@ -1,16 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/name_textView"
-        style="@style/textListContacts" />
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/number_textView"
-        style="@style/textListContacts" />
+        <TextView
+            android:id="@+id/name_textView"
+            style="@style/textListContacts" />
+
+        <TextView
+            android:id="@+id/number_textView"
+            style="@style/textListContacts" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/callContact_imageView"
+        android:src="@drawable/phone_list"
+        style="@style/imageViewListContacts" />
+
+    <ImageView
+        android:id="@+id/sendMessage_imageView"
+        android:src="@drawable/messages_list"
+        style="@style/imageViewListContacts" />
+
+    <ImageView
+        android:id="@+id/editContact_imageView"
+        android:src="@drawable/edit_list"
+        style="@style/imageViewListContacts" />
 
 </LinearLayout>
