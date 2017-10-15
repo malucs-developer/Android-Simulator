@@ -34,28 +34,30 @@ public class ContactsAdapter extends ArrayAdapter<Contacts> {
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.number_textView);
         numberTextView.setText(String.valueOf(currentContact.getNumber()));
 
-        // setOnClickListener of Call Contact / Send Message / Edit Contact
-        ImageView callContact = (ImageView) listItemView.findViewById(R.id.callContact_imageView);
-        callContact.setOnClickListener(new View.OnClickListener() {
+        // setOnClickListener of Dialer / Send Message / Edit Contact
+        // open DialerActivity
+        ImageView dialer = (ImageView) listItemView.findViewById(R.id.dialer_imageView);
+        dialer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // call
+
             }
         });
 
+        // send message
         ImageView sendMessage = (ImageView) listItemView.findViewById(R.id.sendMessage_imageView);
         sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // send message
+
             }
         });
 
+        // open AddContactsActivity to edit the selected contact
         ImageView editContact = (ImageView) listItemView.findViewById(R.id.editContact_imageView);
         editContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // open AddContactsActivity to edit the selected contact
                 Intent intent = new Intent(getContext(), AddContactsActivity.class);
 
                 // get data of selected contact and send to AddContactsActivity

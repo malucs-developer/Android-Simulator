@@ -21,7 +21,7 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/callContact_imageView"
+        android:id="@+id/dialer_imageView"
         android:src="@drawable/phone_list"
         style="@style/imageViewListContacts" />
 
