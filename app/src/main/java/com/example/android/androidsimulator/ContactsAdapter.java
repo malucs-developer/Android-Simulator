@@ -40,7 +40,12 @@ public class ContactsAdapter extends ArrayAdapter<Contacts> {
         dialer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intentDialer = new Intent(getContext(), DialerActivity.class);
 
+                intentDialer.putExtra("nameContact", currentContact.getName());
+                intentDialer.putExtra("numberContact", String.valueOf(currentContact.getNumber()));
+
+                getContext().startActivity(intentDialer);
             }
         });
 

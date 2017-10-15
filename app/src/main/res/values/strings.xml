@@ -14,4 +14,7 @@
     <string name="name_addContactsActivity">Add Contacts</string>
     <string name="textName">Name</string>
     <string name="textNumber">Number</string>
+
+    <!-- DialerActivity -->
+    <string name="text_dialer">Dialing...</string>
 </resources>
