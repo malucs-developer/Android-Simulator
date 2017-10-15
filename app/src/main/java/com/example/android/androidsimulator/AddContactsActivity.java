@@ -1,5 +1,6 @@
 package com.example.android.androidsimulator;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,8 @@ public class AddContactsActivity extends AppCompatActivity {
     EditText nameContact;
     EditText numberContact;
     Button buttonAddContact;
+    CharSequence validationMessage;
+    int idContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,15 @@ public class AddContactsActivity extends AppCompatActivity {
         nameContact = (EditText) findViewById(R.id.nameContact_editText);
         numberContact = (EditText) findViewById(R.id.numberContact_editText);
         buttonAddContact = (Button) findViewById(R.id.addContact_button);
+
+        Intent intent = getIntent();
+        idContact = intent.getIntExtra("idContact", 0);
+
+        if (idContact > 0) {
+            // put data of contact on respective EditView
+            nameContact.setText(intent.getStringExtra("nameContact"));
+            numberContact.setText(intent.getStringExtra("numberContact"));
+        }
 
         buttonAddContact.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -42,7 +54,6 @@ public class AddContactsActivity extends AppCompatActivity {
 
         int totalContacts = preferences.getInt("totalContacts", 0);
 
-        CharSequence validationMessage;
         String name = String.valueOf(nameContact.getText());
         String number = String.valueOf(numberContact.getText());
 
@@ -52,15 +63,24 @@ public class AddContactsActivity extends AppCompatActivity {
         }
         else if (number.isEmpty()) {
             validationMessage = "You need to insert a number";
-        }
-        else {
-            validationMessage = "Added contact";
-            totalContacts += 1;
+        } else {
 
-            // add info of contact on internal storage
-            editor.putInt("totalContacts", totalContacts);
-            editor.putString("nameContact" + totalContacts, name);
-            editor.putInt("numberContact" + totalContacts, Integer.valueOf(number));
+            if (idContact > 0) {
+                // edit contact
+                validationMessage = "Updated contact";
+                editor.putString("nameContact" + idContact, name);
+                editor.putInt("numberContact" + idContact, Integer.valueOf(number));
+            }
+            else {
+                // insert new contact
+                validationMessage = "Added contact";
+                totalContacts += 1;
+                editor.putInt("totalContacts", totalContacts);
+                editor.putString("nameContact" + totalContacts, name);
+                editor.putInt("numberContact" + totalContacts, Integer.valueOf(number));
+            }
+
+            // add info of contact to internal storage
             editor.apply();
 
             // clear EditTexts

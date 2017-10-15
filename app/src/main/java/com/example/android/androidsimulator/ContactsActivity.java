@@ -35,6 +35,7 @@ public class ContactsActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
+        // update contacts
         showContacts();
     }
 
@@ -42,6 +43,7 @@ public class ContactsActivity extends AppCompatActivity {
         buttonAddContact.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // open AddContactsActivity to add/edit a contact
                 Intent intentAddContact = new Intent(ContactsActivity.this, AddContactsActivity.class);
                 startActivity(intentAddContact);
             }
