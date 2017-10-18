@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator;
+package com.example.android.androidsimulator.adapters;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -6,6 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
+
+import com.example.android.androidsimulator.data.Messages;
+import com.example.android.androidsimulator.R;
 
 import java.util.ArrayList;
 

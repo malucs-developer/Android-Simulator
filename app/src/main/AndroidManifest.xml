@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,17 +17,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ContactsActivity"
+            android:name=".activities.ContactsActivity"
             android:label="@string/name_contactsActivity" />
         <activity
-            android:name=".AddContactsActivity"
+            android:name=".activities.AddContactsActivity"
             android:label="@string/name_addContactsActivity" />
         <activity
-            android:name=".DialerActivity"
+            android:name=".activities.DialerActivity"
             android:label="Dialer" />
         <activity
-            android:name=".MessagesActivity"
+            android:name=".activities.MessagesActivity"
             android:label="Messages" />
+        <activity android:name=".adapters.SelectedMessageContact"></activity>
     </application>
 
 </manifest>

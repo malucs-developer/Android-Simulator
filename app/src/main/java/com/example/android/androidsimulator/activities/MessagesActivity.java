@@ -1,8 +1,12 @@
-package com.example.android.androidsimulator;
+package com.example.android.androidsimulator.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ListView;
+
+import com.example.android.androidsimulator.data.Messages;
+import com.example.android.androidsimulator.adapters.MessagesAdapter;
+import com.example.android.androidsimulator.R;
 
 import java.util.ArrayList;
 

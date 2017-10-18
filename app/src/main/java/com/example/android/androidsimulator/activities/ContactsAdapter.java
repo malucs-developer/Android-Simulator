@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator;
+package com.example.android.androidsimulator.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.android.androidsimulator.data.Contacts;
+import com.example.android.androidsimulator.R;
 
 import java.util.ArrayList;
 
