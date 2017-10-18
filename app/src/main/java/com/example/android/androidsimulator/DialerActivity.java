@@ -27,6 +27,7 @@ public class DialerActivity extends AppCompatActivity {
                 // back to ContactsActivity
                 Intent lastIntent = new Intent(DialerActivity.this, ContactsActivity.class);
                 startActivity(lastIntent);
+                finish();
 
                 Toast toast = Toast.makeText(DialerActivity.this, "Call canceled", Toast.LENGTH_SHORT);
                 toast.show();

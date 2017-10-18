@@ -30,7 +30,8 @@ public class MainActivity extends AppCompatActivity {
         messagesImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intentMessages = new Intent(MainActivity.this, MessagesActivity.class);
+                startActivity(intentMessages);
             }
         });
 

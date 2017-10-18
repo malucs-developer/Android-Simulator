@@ -16,18 +16,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".ContactsActivity"
             android:label="@string/name_contactsActivity" />
-
         <activity
             android:name=".AddContactsActivity"
             android:label="@string/name_addContactsActivity" />
-
         <activity
             android:name=".DialerActivity"
-            android:label="Dialer"/>
+            android:label="Dialer" />
+        <activity
+            android:name=".MessagesActivity"
+            android:label="Messages" />
     </application>
 
 </manifest>
