@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator.activities;
+package com.example.android.androidsimulator.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,6 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.android.androidsimulator.activities.AddContactsActivity;
+import com.example.android.androidsimulator.activities.DialerActivity;
 import com.example.android.androidsimulator.data.Contacts;
 import com.example.android.androidsimulator.R;
 

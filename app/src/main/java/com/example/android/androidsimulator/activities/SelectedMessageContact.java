@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator.adapters;
+package com.example.android.androidsimulator.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
