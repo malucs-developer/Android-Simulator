@@ -6,18 +6,18 @@ public class Messages {
     private String user;
     private String date;
 
-    public Messages(String textMessage, String userMessage, String dateMessage) {
-        this.message = textMessage;
+    public Messages(String userMessage, String textMessage, String dateMessage) {
         this.user = userMessage;
+        this.message = textMessage;
         this.date = dateMessage;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
     public String getUser() {
         return user;
+    }
+
+    public String getMessage() {
+        return message;
     }
 
     public String getDate() {
