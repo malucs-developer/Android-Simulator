@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.android.androidsimulator.R;
@@ -27,6 +28,9 @@ public class SelectedContactAdapter extends ArrayAdapter<Contacts> {
         }
 
         final Contacts currentContact = getItem(position);
+
+        LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.list_select_contact);
+        linearLayout.setVisibility(View.VISIBLE);
 
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.nameContact_textView);
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.numberContact_textView);
