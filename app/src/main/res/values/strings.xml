@@ -17,4 +17,7 @@
 
     <!-- DialerActivity -->
     <string name="text_dialer">Dialing...</string>
+
+    <!-- MessagesActivity -->
+    <string name="btn_message">New message</string>
 </resources>
