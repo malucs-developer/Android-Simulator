@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.android.androidsimulator.adapters.ContactsAdapter;
 import com.example.android.androidsimulator.data.Contacts;
 import com.example.android.androidsimulator.R;
 
