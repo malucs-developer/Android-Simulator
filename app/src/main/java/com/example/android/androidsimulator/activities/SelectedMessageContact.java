@@ -109,9 +109,15 @@ public class SelectedMessageContact extends AppCompatActivity {
 
     private void showContacts() {
         contacts = new ArrayList<>();
-        contacts.add(new Contacts("nome", 91371));
-        contacts.add(new Contacts("nome", 91371));
-        contacts.add(new Contacts("nome", 91371));
+
+        int totalContacts = preferences.getInt("totalContacts", 0);
+
+        for (int index = 1; index <= totalContacts; index++) {
+            String name = preferences.getString("nameContact" + index, "");
+            int number = preferences.getInt("numberContact" + index, 0);
+
+            contacts.add(new Contacts(name, number));
+        }
 
         // adapter
         contactAdapter = new SelectedContactAdapter(this, contacts);
@@ -124,6 +130,7 @@ public class SelectedMessageContact extends AppCompatActivity {
         messages.add(new Messages("selectedUser", "text text text text text text text text", "19/10"));
 
         messagesAdapter = new SelectedMessageAdapter(this, messages);
+        ListView listView = (ListView) findViewById(R.id.list_selected_messages);
         listView.setAdapter(messagesAdapter);
     }
 
