@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -112,9 +113,12 @@ public class SelectedMessageContact extends AppCompatActivity {
 
         int totalContacts = preferences.getInt("totalContacts", 0);
 
+        String name = "";
+        int number = 0;
+
         for (int index = 1; index <= totalContacts; index++) {
-            String name = preferences.getString("nameContact" + index, "");
-            int number = preferences.getInt("numberContact" + index, 0);
+            name = preferences.getString("nameContact" + index, "");
+            number = preferences.getInt("numberContact" + index, 0);
 
             contacts.add(new Contacts(name, number));
         }
@@ -122,6 +126,16 @@ public class SelectedMessageContact extends AppCompatActivity {
         // adapter
         contactAdapter = new SelectedContactAdapter(this, contacts);
         listView.setAdapter(contactAdapter);
+
+        // set OnClickListener
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // get name of selected contact
+                // start id of contact = 1
+                setTitle(preferences.getString("nameContact" + (position + 1), ""));
+            }
+        });
     }
 
     private void showMessages() {
