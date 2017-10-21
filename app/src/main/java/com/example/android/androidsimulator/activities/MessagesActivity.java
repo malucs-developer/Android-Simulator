@@ -1,6 +1,8 @@
 package com.example.android.androidsimulator.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,6 +16,8 @@ import com.example.android.androidsimulator.R;
 import java.util.ArrayList;
 
 public class MessagesActivity extends AppCompatActivity {
+
+    SharedPreferences preferences;
 
     ArrayList<Messages> messages;
     MessagesAdapter messagesAdapter;
@@ -39,10 +43,31 @@ public class MessagesActivity extends AppCompatActivity {
         showListMessages();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // update list
+        showListMessages();
+    }
+
     private void showListMessages() {
         messages = new ArrayList<>();
-        messages.add(new Messages("Malucs", "Olá people, tudo?", "18/10"));
-        messages.add(new Messages("Developer", "Vem ter comigo", "18/10"));
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+        int totalContacts = preferences.getInt("totalContacts", 0);
+
+        for (int index = 1; index <= totalContacts; index++) {
+            int totalMessages = preferences.getInt("totalMessages" + index, 0);
+
+            if (totalMessages > 0) {
+                String nameContact = preferences.getString("nameContact" + index, "");
+                String lastMessage = preferences.getString("textMessage" + totalMessages + "id" + index, "");
+                String dateMessage = preferences.getString("dateMessage" + totalMessages + "id" + index, "");
+
+                messages.add(new Messages(nameContact, lastMessage, dateMessage));
+            }
+        }
 
         addAdapter();
     }

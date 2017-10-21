@@ -165,7 +165,7 @@ public class SelectedMessageContact extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                // it will be possible to delete a message
             }
         });
     }
