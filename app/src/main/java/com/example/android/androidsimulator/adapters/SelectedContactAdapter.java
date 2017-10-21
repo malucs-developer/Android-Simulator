@@ -29,14 +29,17 @@ public class SelectedContactAdapter extends ArrayAdapter<Contacts> {
 
         final Contacts currentContact = getItem(position);
 
-        LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.list_select_contact);
-        linearLayout.setVisibility(View.VISIBLE);
+        LinearLayout linearLayoutContacts= (LinearLayout) listItemView.findViewById(R.id.list_select_contact);
+        LinearLayout linearLayoutMessages = (LinearLayout) listItemView.findViewById(R.id.list_selected_message);
 
         TextView nameTextView = (TextView) listItemView.findViewById(R.id.nameContact_textView);
         TextView numberTextView = (TextView) listItemView.findViewById(R.id.numberContact_textView);
 
         nameTextView.setText(currentContact.getName());
         numberTextView.setText(String.valueOf(currentContact.getNumber()));
+
+        linearLayoutContacts.setVisibility(View.VISIBLE);
+        linearLayoutMessages.setVisibility(View.GONE);
 
         return listItemView;
     }

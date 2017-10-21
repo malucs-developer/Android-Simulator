@@ -30,14 +30,16 @@ public class SelectedMessageAdapter extends ArrayAdapter<Messages> {
 
         final Messages currentMessage = getItem(position);
 
-        LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.list_selected_message);
-        linearLayout.setVisibility(View.VISIBLE);
+        LinearLayout linearLayoutMessages = (LinearLayout) listItemView.findViewById(R.id.list_selected_message);
+        LinearLayout linearLayoutContacts= (LinearLayout) listItemView.findViewById(R.id.list_select_contact);
 
         TextView messageTextView = (TextView) listItemView.findViewById(R.id.message_textView);
         TextView dateTextView = (TextView) listItemView.findViewById(R.id.date_textView);
 
         messageTextView.setText(currentMessage.getMessage());
         dateTextView.setText(currentMessage.getDate());
+        linearLayoutMessages.setVisibility(View.VISIBLE);
+        linearLayoutContacts.setVisibility(View.GONE);
 
         return listItemView;
     }

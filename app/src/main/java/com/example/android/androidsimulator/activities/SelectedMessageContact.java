@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.example.android.androidsimulator.R;
 import com.example.android.androidsimulator.adapters.SelectedContactAdapter;
@@ -34,6 +35,8 @@ public class SelectedMessageContact extends AppCompatActivity {
 
     ListView listView;
 
+    Toast toast;
+
     Button sendMessageButton;
     EditText contentMessage;
     int selectedContact = 0;
@@ -53,8 +56,8 @@ public class SelectedMessageContact extends AppCompatActivity {
         preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         // get the selected contact to view/send message
-        Intent getLastIntent = getIntent();
-        selectedContact = getLastIntent.getIntExtra("selectedCount", 0);
+        //Intent getLastIntent = getIntent();
+        //selectedContact = getLastIntent.getIntExtra("selectedCount", 0);
 
         /*
         *
@@ -68,7 +71,7 @@ public class SelectedMessageContact extends AppCompatActivity {
            showContacts();
         }
         else {
-           showMessages();
+           showMessages(selectedContact);
         }
 
         // setEvents
@@ -133,23 +136,55 @@ public class SelectedMessageContact extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // get name of selected contact
                 // start id of contact = 1
-                setTitle(preferences.getString("nameContact" + (position + 1), ""));
+                selectedContact = position + 1;
+                setTitle(preferences.getString("nameContact" + selectedContact, ""));
+                showMessages(selectedContact);
             }
         });
     }
 
-    private void showMessages() {
+    private void showMessages(int idContact) {
         messages = new ArrayList<>();
-        messages.add(new Messages("selectedUser", "text text text text text text text text", "19/10"));
-        messages.add(new Messages("selectedUser", "text text text text text text text text", "19/10"));
+
+        int totalMessages = preferences.getInt("totalMessages" + idContact, 0);
+
+        String name = "";
+        String text = "";
+        String date = "";
+
+        for (int index = 1; index <= totalMessages; index++) {
+            name = preferences.getString("nameContact" + idContact, "");
+            text = preferences.getString("textMessage" + index + "id" + idContact, "");
+            date = preferences.getString("dateMessage" + index + "id" + idContact, "DD/MM");
+            messages.add(new Messages(name, text, date));
+        }
 
         messagesAdapter = new SelectedMessageAdapter(this, messages);
-        ListView listView = (ListView) findViewById(R.id.list_selected_messages);
         listView.setAdapter(messagesAdapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
     }
 
     private void sendMessage() {
-        // editor = preferences.edit();
+        editor = preferences.edit();
+
+        int totalMessages = preferences.getInt("totalMessages" + selectedContact, 0);
+
+        totalMessages += 1;
+        editor.putString("textMessage" + totalMessages + "id" + selectedContact, contentMessage.getText().toString());
+        editor.putString("dateMessage" + totalMessages + "id" + selectedContact, "DD/MM");
+        editor.putInt("totalMessages" + selectedContact, totalMessages);
+        editor.apply();
+
+        showMessages(selectedContact);
+        contentMessage.setText("");
+        toast = Toast.makeText(this, "Delivered message", Toast.LENGTH_SHORT);
+        toast.show();
     }
 
 }
