@@ -57,7 +57,7 @@ public class SelectedMessageContact extends AppCompatActivity {
 
         // get the selected contact to view/send message
         Intent getLastIntent = getIntent();
-        selectedContact = getLastIntent.getIntExtra("selectedCount", 0);
+        selectedContact = getLastIntent.getIntExtra("selectedContact", 0);
 
         /*
         *
