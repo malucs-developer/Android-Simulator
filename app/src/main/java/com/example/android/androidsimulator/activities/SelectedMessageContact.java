@@ -159,6 +159,7 @@ public class SelectedMessageContact extends AppCompatActivity {
             messages.add(new Messages(name, text, date));
         }
 
+        setTitle(name);
         messagesAdapter = new SelectedMessageAdapter(this, messages);
         listView.setAdapter(messagesAdapter);
 
@@ -186,7 +187,7 @@ public class SelectedMessageContact extends AppCompatActivity {
         }
         else {
             editor.apply();
-            
+
             showMessages(selectedContact);
             contentMessage.setText("");
             toast = Toast.makeText(this, "Delivered message", Toast.LENGTH_SHORT);
