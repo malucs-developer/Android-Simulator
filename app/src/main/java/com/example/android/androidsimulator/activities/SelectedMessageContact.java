@@ -179,12 +179,19 @@ public class SelectedMessageContact extends AppCompatActivity {
         editor.putString("textMessage" + totalMessages + "id" + selectedContact, contentMessage.getText().toString());
         editor.putString("dateMessage" + totalMessages + "id" + selectedContact, "DD/MM");
         editor.putInt("totalMessages" + selectedContact, totalMessages);
-        editor.apply();
 
-        showMessages(selectedContact);
-        contentMessage.setText("");
-        toast = Toast.makeText(this, "Delivered message", Toast.LENGTH_SHORT);
-        toast.show();
+        if (selectedContact == 0) {
+            toast = Toast.makeText(this, "You need to select a contact", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else {
+            editor.apply();
+            
+            showMessages(selectedContact);
+            contentMessage.setText("");
+            toast = Toast.makeText(this, "Delivered message", Toast.LENGTH_SHORT);
+            toast.show();
+        }
     }
 
 }
