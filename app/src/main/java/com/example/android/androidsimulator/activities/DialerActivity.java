@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator;
+package com.example.android.androidsimulator.activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.android.androidsimulator.R;
 
 public class DialerActivity extends AppCompatActivity {
 

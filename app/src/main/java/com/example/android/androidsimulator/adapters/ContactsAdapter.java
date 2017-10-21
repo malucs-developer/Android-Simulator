@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator;
+package com.example.android.androidsimulator.adapters;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,6 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.android.androidsimulator.activities.AddContactsActivity;
+import com.example.android.androidsimulator.activities.DialerActivity;
+import com.example.android.androidsimulator.activities.SelectedMessageContact;
+import com.example.android.androidsimulator.data.Contacts;
+import com.example.android.androidsimulator.R;
 
 import java.util.ArrayList;
 
@@ -54,7 +60,9 @@ public class ContactsAdapter extends ArrayAdapter<Contacts> {
         sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getContext(), SelectedMessageContact.class);
+                intent.putExtra("selectedContact", position + 1);
+                getContext().startActivity(intent);
             }
         });
 
