@@ -1,4 +1,4 @@
-package com.example.android.androidsimulator;
+package com.example.android.androidsimulator.data;
 
 public class Contacts {
 
