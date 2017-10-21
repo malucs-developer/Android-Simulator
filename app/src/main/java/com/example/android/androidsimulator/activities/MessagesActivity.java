@@ -28,16 +28,18 @@ public class MessagesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_messages);
 
+        preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
         newMessage_button = (Button) findViewById(R.id.newMessage_button);
 
-        newMessage_button.setOnClickListener(new View.OnClickListener(){
-           @Override
+        newMessage_button.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-               // open the Activity SelectedMessageContact to create a new message
-               Intent intent = new Intent(MessagesActivity.this, SelectedMessageContact.class);
-               intent.putExtra("selectedContact", 0);
-               startActivity(intent);
-           }
+                // open the Activity SelectedMessageContact to create a new message
+                Intent intent = new Intent(MessagesActivity.this, SelectedMessageContact.class);
+                intent.putExtra("selectedContact", 0);
+                startActivity(intent);
+            }
         });
 
         showListMessages();
@@ -53,7 +55,6 @@ public class MessagesActivity extends AppCompatActivity {
 
     private void showListMessages() {
         messages = new ArrayList<>();
-        preferences = PreferenceManager.getDefaultSharedPreferences(this);
 
         int totalContacts = preferences.getInt("totalContacts", 0);
 
