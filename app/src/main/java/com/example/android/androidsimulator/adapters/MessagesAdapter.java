@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.example.android.androidsimulator.activities.SelectedMessageContact;
+import com.example.android.androidsimulator.activities.SelectedConversationActivity;
 import com.example.android.androidsimulator.data.Messages;
 import com.example.android.androidsimulator.R;
 
@@ -65,7 +65,7 @@ public class MessagesAdapter extends ArrayAdapter<Messages> {
 
                 }
 
-                Intent intent = new Intent(getContext(), SelectedMessageContact.class);
+                Intent intent = new Intent(getContext(), SelectedConversationActivity.class);
                 intent.putExtra("selectedContact", checkId);
                 getContext().startActivity(intent);
             }

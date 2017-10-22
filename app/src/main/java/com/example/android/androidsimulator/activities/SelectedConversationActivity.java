@@ -22,7 +22,7 @@ import com.example.android.androidsimulator.data.Messages;
 
 import java.util.ArrayList;
 
-public class SelectedMessageContact extends AppCompatActivity {
+public class SelectedConversationActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -44,7 +44,7 @@ public class SelectedMessageContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selected_message_contact);
+        setContentView(R.layout.activity_selected_conversation);
 
         // views
         listView = (ListView) findViewById(R.id.list_selected_messages);
