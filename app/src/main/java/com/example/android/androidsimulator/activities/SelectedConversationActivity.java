@@ -16,7 +16,7 @@ import android.widget.Toast;
 
 import com.example.android.androidsimulator.R;
 import com.example.android.androidsimulator.adapters.SelectedContactAdapter;
-import com.example.android.androidsimulator.adapters.SelectedMessageAdapter;
+import com.example.android.androidsimulator.adapters.SelectedConversationAdapter;
 import com.example.android.androidsimulator.data.Contacts;
 import com.example.android.androidsimulator.data.Messages;
 
@@ -31,7 +31,7 @@ public class SelectedConversationActivity extends AppCompatActivity {
     ArrayList<Messages> messages;
 
     SelectedContactAdapter contactAdapter;
-    SelectedMessageAdapter messagesAdapter;
+    SelectedConversationAdapter messagesAdapter;
 
     ListView listView;
 
@@ -160,7 +160,7 @@ public class SelectedConversationActivity extends AppCompatActivity {
         }
 
         setTitle(name);
-        messagesAdapter = new SelectedMessageAdapter(this, messages);
+        messagesAdapter = new SelectedConversationAdapter(this, messages);
         listView.setAdapter(messagesAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
