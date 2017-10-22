@@ -36,7 +36,7 @@ public class MessagesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // open the Activity SelectedMessageContact to create a new message
-                Intent intent = new Intent(MessagesActivity.this, SelectedMessageContact.class);
+                Intent intent = new Intent(MessagesActivity.this, SelectedConversationActivity.class);
                 intent.putExtra("selectedContact", 0);
                 startActivity(intent);
             }

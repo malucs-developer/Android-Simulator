@@ -14,9 +14,9 @@ import com.example.android.androidsimulator.data.Messages;
 
 import java.util.ArrayList;
 
-public class SelectedMessageAdapter extends ArrayAdapter<Messages> {
+public class SelectedConversationAdapter extends ArrayAdapter<Messages> {
 
-    public SelectedMessageAdapter(Activity context, ArrayList<Messages> messages) {
+    public SelectedConversationAdapter(Activity context, ArrayList<Messages> messages) {
         super(context, 0, messages);
     }
 

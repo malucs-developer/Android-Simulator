@@ -16,13 +16,15 @@ import android.widget.Toast;
 
 import com.example.android.androidsimulator.R;
 import com.example.android.androidsimulator.adapters.SelectedContactAdapter;
-import com.example.android.androidsimulator.adapters.SelectedMessageAdapter;
+import com.example.android.androidsimulator.adapters.SelectedConversationAdapter;
 import com.example.android.androidsimulator.data.Contacts;
 import com.example.android.androidsimulator.data.Messages;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class SelectedMessageContact extends AppCompatActivity {
+public class SelectedConversationActivity extends AppCompatActivity {
 
     SharedPreferences preferences;
     SharedPreferences.Editor editor;
@@ -31,7 +33,7 @@ public class SelectedMessageContact extends AppCompatActivity {
     ArrayList<Messages> messages;
 
     SelectedContactAdapter contactAdapter;
-    SelectedMessageAdapter messagesAdapter;
+    SelectedConversationAdapter messagesAdapter;
 
     ListView listView;
 
@@ -44,7 +46,7 @@ public class SelectedMessageContact extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_selected_message_contact);
+        setContentView(R.layout.activity_selected_conversation);
 
         // views
         listView = (ListView) findViewById(R.id.list_selected_messages);
@@ -160,7 +162,7 @@ public class SelectedMessageContact extends AppCompatActivity {
         }
 
         setTitle(name);
-        messagesAdapter = new SelectedMessageAdapter(this, messages);
+        messagesAdapter = new SelectedConversationAdapter(this, messages);
         listView.setAdapter(messagesAdapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -174,11 +176,13 @@ public class SelectedMessageContact extends AppCompatActivity {
     private void sendMessage() {
         editor = preferences.edit();
 
+        Date dNow = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("dd/MM");
         int totalMessages = preferences.getInt("totalMessages" + selectedContact, 0);
 
         totalMessages += 1;
         editor.putString("textMessage" + totalMessages + "id" + selectedContact, contentMessage.getText().toString());
-        editor.putString("dateMessage" + totalMessages + "id" + selectedContact, "DD/MM");
+        editor.putString("dateMessage" + totalMessages + "id" + selectedContact, ft.format(dNow));
         editor.putInt("totalMessages" + selectedContact, totalMessages);
 
         if (selectedContact == 0) {
@@ -194,6 +198,5 @@ public class SelectedMessageContact extends AppCompatActivity {
             toast.show();
         }
     }
-
 }
 

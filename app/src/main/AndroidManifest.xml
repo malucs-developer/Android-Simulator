@@ -28,7 +28,7 @@
         <activity
             android:name=".activities.MessagesActivity"
             android:label="Messages" />
-        <activity android:name=".activities.SelectedMessageContact"></activity>
+        <activity android:name=".activities.SelectedConversationActivity"></activity>
     </application>
 
 </manifest>

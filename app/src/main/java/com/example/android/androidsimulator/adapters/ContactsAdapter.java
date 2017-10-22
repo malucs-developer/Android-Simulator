@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.example.android.androidsimulator.activities.AddContactsActivity;
 import com.example.android.androidsimulator.activities.DialerActivity;
-import com.example.android.androidsimulator.activities.SelectedMessageContact;
+import com.example.android.androidsimulator.activities.SelectedConversationActivity;
 import com.example.android.androidsimulator.data.Contacts;
 import com.example.android.androidsimulator.R;
 
@@ -60,7 +60,7 @@ public class ContactsAdapter extends ArrayAdapter<Contacts> {
         sendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), SelectedMessageContact.class);
+                Intent intent = new Intent(getContext(), SelectedConversationActivity.class);
                 intent.putExtra("selectedContact", position + 1);
                 getContext().startActivity(intent);
             }
