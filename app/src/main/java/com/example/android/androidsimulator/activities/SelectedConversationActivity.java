@@ -20,7 +20,9 @@ import com.example.android.androidsimulator.adapters.SelectedConversationAdapter
 import com.example.android.androidsimulator.data.Contacts;
 import com.example.android.androidsimulator.data.Messages;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class SelectedConversationActivity extends AppCompatActivity {
 
@@ -174,11 +176,13 @@ public class SelectedConversationActivity extends AppCompatActivity {
     private void sendMessage() {
         editor = preferences.edit();
 
+        Date dNow = new Date();
+        SimpleDateFormat ft = new SimpleDateFormat("dd/MM");
         int totalMessages = preferences.getInt("totalMessages" + selectedContact, 0);
 
         totalMessages += 1;
         editor.putString("textMessage" + totalMessages + "id" + selectedContact, contentMessage.getText().toString());
-        editor.putString("dateMessage" + totalMessages + "id" + selectedContact, "DD/MM");
+        editor.putString("dateMessage" + totalMessages + "id" + selectedContact, ft.format(dNow));
         editor.putInt("totalMessages" + selectedContact, totalMessages);
 
         if (selectedContact == 0) {
@@ -194,6 +198,5 @@ public class SelectedConversationActivity extends AppCompatActivity {
             toast.show();
         }
     }
-
 }
 
