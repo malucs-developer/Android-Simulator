@@ -28,7 +28,11 @@
         <activity
             android:name=".activities.MessagesActivity"
             android:label="Messages" />
-        <activity android:name=".activities.SelectedConversationActivity"></activity>
+        <activity
+            android:name=".activities.SelectedConversationActivity" />
+        <activity
+            android:name=".activities.ProfileActivity"
+            android:label="Profile"/>
     </application>
 
 </manifest>

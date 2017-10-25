@@ -49,6 +49,18 @@
             android:layout_toRightOf="@id/contacts_textView"
             android:text="@string/app_settings"
             style="@style/textIconsMainActivity"/>
+
+        <ImageView
+            android:id="@+id/img_profile"
+            android:src="@drawable/profile"
+            android:layout_below="@id/messages_textView"
+            style="@style/iconsMainActivity" />
+
+        <TextView
+            android:id="@+id/profile_textView"
+            android:text="@string/app_profile"
+            android:layout_below="@id/img_profile"
+            style="@style/textIconsMainActivity" />
     </RelativeLayout>
 
 </LinearLayout>
