@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
             }
         });
     }
