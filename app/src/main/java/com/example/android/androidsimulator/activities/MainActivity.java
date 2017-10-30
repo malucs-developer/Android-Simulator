@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     ImageView messagesImg;
     ImageView contactsImg;
     ImageView settingsImg;
+    ImageView profileImg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         messagesImg = (ImageView) findViewById(R.id.img_messages);
         contactsImg = (ImageView) findViewById(R.id.img_contacts);
         settingsImg = (ImageView) findViewById(R.id.img_settings);
+        profileImg = (ImageView) findViewById(R.id.img_profile);
 
         // set OnClickListener
         setEvents();
@@ -51,6 +53,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+            }
+        });
+
+        // profile
+        profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentProfile = new Intent(MainActivity.this, ProfileActivity.class);
+                startActivity(intentProfile);
             }
         });
     }
